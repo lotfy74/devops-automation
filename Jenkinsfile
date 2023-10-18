@@ -26,14 +26,7 @@ pipeline {
 }
                    sh 'docker push javatechie/devops-integration'
                 }
-            }
-        }
-        stage('Deploy to k8s'){
-            steps{
-                script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
-                }
-            }
-        }
+            }  
+       }     
     }
 }
