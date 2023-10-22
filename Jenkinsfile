@@ -13,18 +13,18 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t javatechie/devops-integration .'
+                    sh 'docker build -t amr8/devops-automation:1.0.'
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u javatechie -p ${dockerhubpwd}'
+                   withCredentials([usernamepassword(credentialsId: 'dockerhub-pwd', usernamevariable: 'USER' passwordvariable: 'PASS')]) {
+                   sh 'docker login -u ${USER} -p ${PASS}'
 
 }
-                   sh 'docker push javatechie/devops-integration'
+                   sh 'docker push amr8/devops-automation:1.0'
                }
            } 
         } 
