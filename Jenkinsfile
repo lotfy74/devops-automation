@@ -27,4 +27,6 @@ pipeline {
                    sh 'docker push javatechie/devops-integration'
                }
            } 
-        }      
+        } 
+    }
+}
