@@ -13,18 +13,18 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t amrr:1.0.'
+                    sh 'docker build -t amr8/devops-automation:1.0.'
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([usernamepassword(credentialsId: 'dockerhub-pwd', usernamevariable: 'USER', passwordvariable: 'PASS')]) {
+                   withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', usernamevariable: 'USER', passwordvariable: 'PASS')]) {
                    sh 'docker login -u ${USER} -p ${PASS}'
 
 }
-                   sh 'docker push amrr:1.0'
+                   sh 'docker push amr8/devops-automation:1.0'
                }
            } 
         } 
