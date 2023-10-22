@@ -24,7 +24,7 @@ pipeline {
                    sh 'docker login -u ${USER} -p ${PASS}'
 
 }
-                   sh 'docker push amr8/devops-automation:1.0 .'
+                   sh 'docker push amr8/devops-automation:1.0 '
                }
            } 
         } 
