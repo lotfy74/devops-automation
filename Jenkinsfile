@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t amr8/devops-automation:1.0 .'
+                    sh 'docker build -t amr8/devops-automation:1.1 .'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                    sh 'docker login -u ${USER} -p ${PASS}'
 
 }
-                   sh 'docker push amr8/devops-automation:1.0 '
+                   sh 'docker push amr8/devops-automation:1.1 '
                }
            } 
         } 
